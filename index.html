@@ -33,9 +33,7 @@
                             <label for="eventType" class="form-label fw-bold text-brown">કાર્ડ પ્રકાર પસંદ કરો:</label>
                             <select id="eventType" class="form-select">
                                 <option value="besanu">બેસણું</option>
-                                <option value="termu">તેરમું</option>
                                 <option value="utarkriya">ઉત્તરક્રિયા</option>
-                                <option value="chhamhi">છમ્હી</option>
                                 <option value="punyatithi" selected>પુણ્યતિથિ</option>
                                 <option value="varsi">વર્ષી / વાર્ષિક શ્રાદ્ધ</option>
                                 <option value="shradhanjali">શ્રદ્ધાંજલિ</option>
@@ -129,6 +127,24 @@
                             <input type="text" id="deceasedName_english" class="form-control lang-input hidden"
                                 data-lang="english" value="Late. Rajabhalal Zaverbhai Savani">
                         </div>
+                        <div class="d-flex gap-3 align-items-center mb-3">
+                            <div class="d-flex align-items-center gap-1">
+                                <label class="form-label small mb-0 text-brown">ફોન્ટ:</label>
+                                <input type="range" class="form-range" id="deceasedNameFontSize" min="16" max="40"
+                                    value="23" style="width:100px;">
+                                <span id="deceasedNameFontSizeValue" class="small text-muted">23px</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                                <label class="form-label small mb-0 text-brown">રંગ:</label>
+                                <input type="color" class="form-control form-control-color" id="deceasedNameFontColor"
+                                    value="#5a3d2b" style="width:35px;height:30px;padding:2px;">
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-1 mb-0">
+                                <input class="form-check-input" type="checkbox" id="deceasedNameBold">
+                                <label class="form-check-label small text-brown fw-bold"
+                                    for="deceasedNameBold">B</label>
+                            </div>
+                        </div>
 
                         <div class="mb-3">
                             <label for="eventDate" class="form-label">તારીખ (DD.MM.YYYY):</label>
@@ -149,21 +165,21 @@
                         <div class="d-flex gap-3 align-items-center mb-3">
                             <div class="d-flex align-items-center gap-1">
                                 <label class="form-label small mb-0 text-brown">ફોન્ટ:</label>
-                                <input type="range" class="form-range" id="deceasedNameFontSize" min="16" max="40"
-                                    value="23" style="width:100px;">
-                                <span id="deceasedNameFontSizeValue" class="small text-muted">23px</span>
+                                <input type="range" class="form-range" id="datePlaceFontSize" min="12" max="28"
+                                    value="16" style="width:100px;">
+                                <span id="datePlaceFontSizeValue" class="small text-muted">16px</span>
                             </div>
                             <div class="d-flex align-items-center gap-1">
                                 <label class="form-label small mb-0 text-brown">રંગ:</label>
-                                <input type="color" class="form-control form-control-color" id="deceasedNameFontColor"
+                                <input type="color" class="form-control form-control-color" id="datePlaceFontColor"
                                     value="#5a3d2b" style="width:35px;height:30px;padding:2px;">
                             </div>
                             <div class="form-check d-flex align-items-center gap-1 mb-0">
-                                <input class="form-check-input" type="checkbox" id="deceasedNameBold">
-                                <label class="form-check-label small text-brown fw-bold"
-                                    for="deceasedNameBold">B</label>
+                                <input class="form-check-input" type="checkbox" id="datePlaceBold">
+                                <label class="form-check-label small text-brown fw-bold" for="datePlaceBold">B</label>
                             </div>
                         </div>
+
 
                         <div class="mb-4">
                             <label for="photoUpload" class="form-label">ફોટો અપલોડ કરો:</label>
@@ -310,6 +326,31 @@
                             </div>
                         </div>
 
+                        <!-- Family Mobile Number Styling -->
+                        <div class="d-flex gap-3 align-items-center mb-3">
+                            <div class="d-flex align-items-center gap-1">
+                                <label class="form-label small mb-0 text-brown">મોબાઈલ નં. ફોન્ટ:</label>
+                                <input type="range" class="form-range" id="familyMobileFontSize" min="10" max="25"
+                                    value="16" style="width:100px;">
+                                <span id="familyMobileFontSizeValue" class="small text-muted">16px</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                                <label class="form-label small mb-0 text-brown">રંગ:</label>
+                                <input type="color" class="form-control form-control-color" id="familyMobileFontColor"
+                                    value="#7a5f4c" style="width:35px;height:30px;padding:2px;">
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-1 mb-0">
+                                <input class="form-check-input" type="checkbox" id="familyMobileBold">
+                                <label class="form-check-label small text-brown fw-bold"
+                                    for="familyMobileBold">B</label>
+                            </div>
+                            <div class="form-check d-flex align-items-center gap-1 mb-0 ms-2">
+                                <input class="form-check-input" type="checkbox" id="familyMobileNewLine">
+                                <label class="form-check-label small text-brown" for="familyMobileNewLine">નવી
+                                    લાઈન</label>
+                            </div>
+                        </div>
+
                         <hr class="my-4">
 
                         <!-- Custom Sections (Below Family) -->
@@ -336,6 +377,36 @@
                                 <label for="cardBackgroundColor" class="form-label">બેકગ્રાઉન્ડ રંગ:</label>
                                 <input type="color" class="form-control form-control-color" id="cardBackgroundColor"
                                     value="#fdf5e6">
+                            </div>
+
+                            <hr class="my-3">
+
+                            <h4 class="h6 fw-bold text-brown mb-3">કાર્ડ પેડિંગ</h4>
+                            <div class="row g-2 mb-2">
+                                <div class="col-6">
+                                    <label class="form-label small mb-1">ઉપર: <span
+                                            id="cardPaddingTopValue">50</span>px</label>
+                                    <input type="range" class="form-range" id="cardPaddingTop" min="0" max="100"
+                                        value="50">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label small mb-1">નીચે: <span
+                                            id="cardPaddingBottomValue">50</span>px</label>
+                                    <input type="range" class="form-range" id="cardPaddingBottom" min="0" max="100"
+                                        value="50">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label small mb-1">ડાબે: <span
+                                            id="cardPaddingLeftValue">60</span>px</label>
+                                    <input type="range" class="form-range" id="cardPaddingLeft" min="0" max="120"
+                                        value="60">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label small mb-1">જમણે: <span
+                                            id="cardPaddingRightValue">60</span>px</label>
+                                    <input type="range" class="form-range" id="cardPaddingRight" min="0" max="120"
+                                        value="60">
+                                </div>
                             </div>
                         </div> <!-- End Advanced Styling Options -->
 
@@ -383,7 +454,7 @@
                         </div>
 
                         <div class="family-section">
-                            <p class="family-heading" id="displayFamilyHeading">॥ લિ. ॥</p>
+                            <p class="family-heading" id="displayFamilyHeading"></p>
                             <div class="family-names-layout" id="displayFamilyNamesLayout">
                                 <!-- Family names injected here by JS -->
                             </div>

@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const deceasedNameFontSizeValue = document.getElementById('deceasedNameFontSizeValue');
     const deceasedNameFontColor = document.getElementById('deceasedNameFontColor');
     const deceasedNameBoldCheckbox = document.getElementById('deceasedNameBold');
+    const datePlaceFontSize = document.getElementById('datePlaceFontSize');
+    const datePlaceFontSizeValue = document.getElementById('datePlaceFontSizeValue');
+    const datePlaceFontColor = document.getElementById('datePlaceFontColor');
+    const datePlaceBoldCheckbox = document.getElementById('datePlaceBold');
 
     // Messages
     const messageTextInputs = {
@@ -70,6 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const familyNameFontSizeValue = document.getElementById('familyNameFontSizeValue');
     const familyNameFontColor = document.getElementById('familyNameFontColor');
     const familyNameBoldCheckbox = document.getElementById('familyNameBold');
+    // Family Mobile Styling
+    const familyMobileFontSize = document.getElementById('familyMobileFontSize');
+    const familyMobileFontSizeValue = document.getElementById('familyMobileFontSizeValue');
+    const familyMobileFontColor = document.getElementById('familyMobileFontColor');
+    const familyMobileBoldCheckbox = document.getElementById('familyMobileBold');
+    const familyMobileNewLineCheckbox = document.getElementById('familyMobileNewLine');
 
     // Family Layout Radios
     const familyLayout1Col = document.getElementById('familyLayout1Col');
@@ -90,6 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Card Background Color
     const cardBackgroundColorInput = document.getElementById('cardBackgroundColor');
+
+    // Card Padding
+    const cardPaddingTop = document.getElementById('cardPaddingTop');
+    const cardPaddingTopValue = document.getElementById('cardPaddingTopValue');
+    const cardPaddingBottom = document.getElementById('cardPaddingBottom');
+    const cardPaddingBottomValue = document.getElementById('cardPaddingBottomValue');
+    const cardPaddingLeft = document.getElementById('cardPaddingLeft');
+    const cardPaddingLeftValue = document.getElementById('cardPaddingLeftValue');
+    const cardPaddingRight = document.getElementById('cardPaddingRight');
+    const cardPaddingRightValue = document.getElementById('cardPaddingRightValue');
 
     // Generate & Download Buttons
     const generateBtn = document.getElementById('generateBtn');
@@ -197,7 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         deceasedNameFontSize: '23',
         deceasedNameFontColor: '#5a3d2b',
-        deceasedNameBold: false,
+        deceasedNameBold: true,
+        datePlaceFontSize: '16',
+        datePlaceFontColor: '#5a3d2b',
+        datePlaceBold: false,
         deceasedPhoto: './assets/img/placeholder.png',
         eventDate: '15.10.2023',
         eventPlace: {
@@ -240,16 +263,18 @@ document.addEventListener('DOMContentLoaded', () => {
         familyNames: [
             { gujarati: 'મનુભાઈ રાજભાલાલ સવાણી', hindi: 'मनुभाई राजभालाल सवाणी', english: 'Manubhai Rajabhalal Savani' },
             { gujarati: 'તુળશીભાઈ રાજભાલાલ સવાણી', hindi: 'तुळसीभाई राजभालाल सवाणी', english: 'Tulshibhai Rajabhalal Savani' },
-            { gujarati: 'જીતુભાઈ રાજભાલાલ સવાણી', hindi: 'जीतूभाई राजभालाल सवाणी', english: 'Jitubhai Rajabhalal Savani' },
-            { gujarati: 'મહેન્દ્ર મનુભાઈ સવાણી', hindi: 'महेन्द्र मनुभाई सवाणी', english: 'Mahendra Manubhai Savani' },
-            { gujarati: 'હિરેન તુળશીભાઈ સવાણી', hindi: 'हिरेन तुळसीभाई सवाणी', english: 'Hiren Tulshibhai Savani' },
-            { gujarati: 'મિતેશ મનુભાઈ સવાણી', hindi: 'मितेश मनुभाई सवाणी', english: 'Mitesh Manubhai Savani' },
-            { gujarati: 'નિકુંજ તુળશીભાઈ સવાણી', hindi: 'निकुंज तुळसीभाई सवाणी', english: 'Nikunj Tulshibhai Savani' },
-            { gujarati: 'જસ્મીન જીતુભાઈ સવાણી', hindi: 'जस्मीन जीतूभाई सवाणी', english: 'Jasmin Jitubhai Savani' }
+            { gujarati: 'હિરેન તળશીભાઈ સવાણી', hindi: 'हिरेन तल्सीभाई सवाणी', english: 'Hiren Talshibhai Savani' },
+            { gujarati: 'રાજભા તળશીભાઈ સવાણી', hindi: 'राजभा तल्सीभाई सवाणी', english: 'Rajbha Talshi bhai Savani' },
         ],
         familyNameFontSize: '18',
         familyNameFontColor: '#7a5f4c',
         familyNameBold: false,
+
+        // Family Mobile Styling
+        familyMobileFontSize: '16',
+        familyMobileFontColor: '#7a5f4c',
+        familyMobileBold: false,
+        familyMobileNewLine: false,
 
         // Family Title Styling (separate from member names)
         familyTitleFontSize: '20',
@@ -264,6 +289,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Global Styles
         cardBackgroundColor: '#fdf5e6',
+        cardPaddingTop: '50',
+        cardPaddingBottom: '50',
+        cardPaddingLeft: '60',
+        cardPaddingRight: '60',
     };
 
     // --- 3. Helper Functions ---
@@ -327,6 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deceasedNameFontSizeValue.textContent = `${deceasedNameFontSize.value}px`;
         messageFontSizeValue.textContent = `${messageFontSize.value}px`;
         familyNameFontSizeValue.textContent = `${familyNameFontSize.value}px`;
+        familyMobileFontSizeValue.textContent = `${familyMobileFontSize.value}px`;
     }
 
     // --- 4. Render Control Panel (Initial & On-Change) ---
@@ -422,6 +452,11 @@ document.addEventListener('DOMContentLoaded', () => {
         deceasedNameFontColor.value = cardData.deceasedNameFontColor;
         deceasedNameBoldCheckbox.checked = cardData.deceasedNameBold;
 
+        datePlaceFontSize.value = cardData.datePlaceFontSize;
+        datePlaceFontSizeValue.textContent = cardData.datePlaceFontSize + 'px';
+        datePlaceFontColor.value = cardData.datePlaceFontColor;
+        datePlaceBoldCheckbox.checked = cardData.datePlaceBold;
+
         messageFontSize.value = cardData.messageFontSize;
         messageFontSizeValue.textContent = cardData.messageFontSize + 'px';
         messageFontColor.value = cardData.messageFontColor;
@@ -432,12 +467,27 @@ document.addEventListener('DOMContentLoaded', () => {
         familyNameFontColor.value = cardData.familyNameFontColor;
         familyNameBoldCheckbox.checked = cardData.familyNameBold;
 
+        familyMobileFontSize.value = cardData.familyMobileFontSize;
+        familyMobileFontSizeValue.textContent = cardData.familyMobileFontSize + 'px';
+        familyMobileFontColor.value = cardData.familyMobileFontColor;
+        familyMobileBoldCheckbox.checked = cardData.familyMobileBold;
+        familyMobileNewLineCheckbox.checked = cardData.familyMobileNewLine;
+
         familyTitleFontSize.value = cardData.familyTitleFontSize;
         familyTitleFontSizeValue.textContent = cardData.familyTitleFontSize + 'px';
         familyTitleFontColor.value = cardData.familyTitleFontColor;
         familyTitleBoldCheckbox.checked = cardData.familyTitleBold;
 
         cardBackgroundColorInput.value = cardData.cardBackgroundColor;
+
+        cardPaddingTop.value = cardData.cardPaddingTop;
+        cardPaddingTopValue.textContent = cardData.cardPaddingTop;
+        cardPaddingBottom.value = cardData.cardPaddingBottom;
+        cardPaddingBottomValue.textContent = cardData.cardPaddingBottom;
+        cardPaddingLeft.value = cardData.cardPaddingLeft;
+        cardPaddingLeftValue.textContent = cardData.cardPaddingLeft;
+        cardPaddingRight.value = cardData.cardPaddingRight;
+        cardPaddingRightValue.textContent = cardData.cardPaddingRight;
 
         updateLanguageInputVisibility();
         updateTributeCardDisplay();
@@ -447,13 +497,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    function createFamilyMemberInputGroup(nameObj = { gujarati: '', hindi: '', english: '' }, index) {
+    function createFamilyMemberInputGroup(nameObj = { gujarati: '', hindi: '', english: '', mobile: '' }, index) {
         const div = document.createElement('div');
         div.classList.add('family-member-group', 'input-group', 'mb-2');
+
+        // Ensure mobile property exists
+        if (!nameObj.mobile) nameObj.mobile = '';
+
         div.innerHTML = `
             <input type="text" class="form-control family-member-input lang-input" data-lang="gujarati" value="${escapeHtml(nameObj.gujarati)}" placeholder="ગુજરાતીમાં નામ">
             <input type="text" class="form-control family-member-input lang-input hidden" data-lang="hindi" value="${escapeHtml(nameObj.hindi)}" placeholder="हिंदी में नाम">
             <input type="text" class="form-control family-member-input lang-input hidden" data-lang="english" value="${escapeHtml(nameObj.english)}" placeholder="Name in English">
+            <input type="text" class="form-control family-member-mobile" value="${escapeHtml(nameObj.mobile)}" placeholder="Mobile No.">
             <button class="btn btn-outline-danger remove-family-member-btn" type="button" data-index="${index}">✕</button>
         `;
         div.querySelectorAll('.family-member-input').forEach(input => {
@@ -462,6 +517,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 cardData.familyNames[index][lang] = e.target.value;
                 updateTributeCardDisplay();
             });
+        });
+        div.querySelector('.family-member-mobile').addEventListener('input', (e) => {
+            cardData.familyNames[index].mobile = e.target.value;
+            updateTributeCardDisplay();
         });
         div.querySelector('.remove-family-member-btn').addEventListener('click', () => {
             cardData.familyNames.splice(index, 1);
@@ -482,71 +541,115 @@ document.addEventListener('DOMContentLoaded', () => {
     function createCustomSectionEditor(sectionObj, index, sectionsArray) {
         const div = document.createElement('div');
         div.classList.add('custom-section-editor');
+
+        // Default values if undefined (for backward compatibility or new objects)
+        if (!sectionObj.titleFontSize) sectionObj.titleFontSize = 18;
+        if (!sectionObj.titleColor) sectionObj.titleColor = '#5a3d2b';
+        if (sectionObj.titleBold === undefined) sectionObj.titleBold = true;
+
+        if (!sectionObj.bodyFontSize) sectionObj.bodyFontSize = 16;
+        if (!sectionObj.bodyColor) sectionObj.bodyColor = '#5a3d2b';
+        if (sectionObj.bodyBold === undefined) sectionObj.bodyBold = false;
+
         div.innerHTML = `
             <div class="section-actions">
                 <button class="btn btn-outline-secondary move-up-btn" type="button" title="ઉપર ખસેડો">▲</button>
                 <button class="btn btn-outline-secondary move-down-btn" type="button" title="નીચે ખસેડો">▼</button>
                 <button class="btn btn-outline-danger remove-section-btn" type="button" title="દૂર કરો">✕</button>
             </div>
-            <div class="mb-2">
+            
+            <!-- Title Section -->
+            <div class="mb-2 p-2 border rounded bg-white">
                 <label class="form-label fw-bold small text-brown">વિભાગ શીર્ષક:</label>
-                <input type="text" class="form-control section-title-input" value="${escapeHtml(sectionObj.title)}" placeholder="શીર્ષક લખો">
+                <input type="text" class="form-control section-title-input mb-2" value="${escapeHtml(sectionObj.title)}" placeholder="શીર્ષક લખો">
+                
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="d-flex align-items-center gap-1">
+                        <label class="form-label small mb-0 text-muted">ફ:</label>
+                        <input type="range" class="form-range section-title-font-size" min="10" max="30" value="${sectionObj.titleFontSize}" style="width:60px;">
+                        <span class="section-title-font-size-val small text-muted">${sectionObj.titleFontSize}px</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-1">
+                        <input type="color" class="form-control form-control-color section-title-font-color" value="${sectionObj.titleColor}" style="width:30px;height:25px;padding:2px;">
+                    </div>
+                    <div class="form-check d-flex align-items-center gap-1 mb-0">
+                        <input class="form-check-input section-title-bold-check" type="checkbox" ${sectionObj.titleBold ? 'checked' : ''}>
+                        <label class="form-check-label small fw-bold">B</label>
+                    </div>
+                </div>
             </div>
-            <div class="mb-2">
+
+            <!-- Body Section -->
+            <div class="mb-2 p-2 border rounded bg-white">
                 <label class="form-label fw-bold small text-brown">વિભાગ ટેક્સ્ટ:</label>
-                <textarea class="form-control section-body-input" rows="3" placeholder="ટેક્સ્ટ લખો (ગુજરાતીમાં)">${escapeHtml(sectionObj.body)}</textarea>
-            </div>
-            <div class="d-flex gap-3 align-items-center mb-1">
-                <div class="d-flex align-items-center gap-1">
-                    <label class="form-label small mb-0 text-brown">ફોન્ટ:</label>
-                    <input type="range" class="form-range section-font-size" min="10" max="30" value="${sectionObj.fontSize || 16}" style="width:80px;">
-                    <span class="section-font-size-val small text-muted">${sectionObj.fontSize || 16}px</span>
-                </div>
-                <div class="d-flex align-items-center gap-1">
-                    <label class="form-label small mb-0 text-brown">રંગ:</label>
-                    <input type="color" class="form-control form-control-color section-font-color" value="${sectionObj.color || '#5a3d2b'}" style="width:35px;height:30px;padding:2px;">
-                </div>
-                <div class="form-check d-flex align-items-center gap-1 mb-0">
-                    <input class="form-check-input section-bold-check" type="checkbox" ${sectionObj.bold ? 'checked' : ''}>
-                    <label class="form-check-label small text-brown fw-bold">B</label>
+                <textarea class="form-control section-body-input mb-2" rows="3" placeholder="ટેક્સ્ટ લખો">${escapeHtml(sectionObj.body)}</textarea>
+
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="d-flex align-items-center gap-1">
+                        <label class="form-label small mb-0 text-muted">ફ:</label>
+                        <input type="range" class="form-range section-body-font-size" min="10" max="30" value="${sectionObj.bodyFontSize}" style="width:60px;">
+                        <span class="section-body-font-size-val small text-muted">${sectionObj.bodyFontSize}px</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-1">
+                        <input type="color" class="form-control form-control-color section-body-font-color" value="${sectionObj.bodyColor}" style="width:30px;height:25px;padding:2px;">
+                    </div>
+                    <div class="form-check d-flex align-items-center gap-1 mb-0">
+                        <input class="form-check-input section-body-bold-check" type="checkbox" ${sectionObj.bodyBold ? 'checked' : ''}>
+                        <label class="form-check-label small fw-bold">B</label>
+                    </div>
                 </div>
             </div>
         `;
 
-        // Title input
+        // --- TITLE Events ---
         div.querySelector('.section-title-input').addEventListener('input', (e) => {
             sectionsArray[index].title = e.target.value;
             updateTributeCardDisplay();
         });
 
-        // Body textarea
+        const titleFontSlider = div.querySelector('.section-title-font-size');
+        const titleFontSizeVal = div.querySelector('.section-title-font-size-val');
+        titleFontSlider.addEventListener('input', (e) => {
+            sectionsArray[index].titleFontSize = e.target.value;
+            titleFontSizeVal.textContent = e.target.value + 'px';
+            updateTributeCardDisplay();
+        });
+
+        div.querySelector('.section-title-font-color').addEventListener('input', (e) => {
+            sectionsArray[index].titleColor = e.target.value;
+            updateTributeCardDisplay();
+        });
+
+        div.querySelector('.section-title-bold-check').addEventListener('change', (e) => {
+            sectionsArray[index].titleBold = e.target.checked;
+            updateTributeCardDisplay();
+        });
+
+        // --- BODY Events ---
         div.querySelector('.section-body-input').addEventListener('input', (e) => {
             sectionsArray[index].body = e.target.value;
             updateTributeCardDisplay();
         });
 
-        // Font size slider
-        const fontSlider = div.querySelector('.section-font-size');
-        const fontSizeVal = div.querySelector('.section-font-size-val');
-        fontSlider.addEventListener('input', (e) => {
-            sectionsArray[index].fontSize = e.target.value;
-            fontSizeVal.textContent = e.target.value + 'px';
+        const bodyFontSlider = div.querySelector('.section-body-font-size');
+        const bodyFontSizeVal = div.querySelector('.section-body-font-size-val');
+        bodyFontSlider.addEventListener('input', (e) => {
+            sectionsArray[index].bodyFontSize = e.target.value;
+            bodyFontSizeVal.textContent = e.target.value + 'px';
             updateTributeCardDisplay();
         });
 
-        // Font color picker
-        div.querySelector('.section-font-color').addEventListener('input', (e) => {
-            sectionsArray[index].color = e.target.value;
+        div.querySelector('.section-body-font-color').addEventListener('input', (e) => {
+            sectionsArray[index].bodyColor = e.target.value;
             updateTributeCardDisplay();
         });
 
-        // Bold checkbox
-        div.querySelector('.section-bold-check').addEventListener('change', (e) => {
-            sectionsArray[index].bold = e.target.checked;
+        div.querySelector('.section-body-bold-check').addEventListener('change', (e) => {
+            sectionsArray[index].bodyBold = e.target.checked;
             updateTributeCardDisplay();
         });
 
-        // Move up
+        // --- Action Buttons ---
         div.querySelector('.move-up-btn').addEventListener('click', () => {
             if (index > 0) {
                 const temp = sectionsArray[index];
@@ -556,7 +659,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Move down
         div.querySelector('.move-down-btn').addEventListener('click', () => {
             if (index < sectionsArray.length - 1) {
                 const temp = sectionsArray[index];
@@ -566,7 +668,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Remove
         div.querySelector('.remove-section-btn').addEventListener('click', () => {
             sectionsArray.splice(index, 1);
             renderControlPanel();
@@ -593,6 +694,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Apply Background Color
         tributeCard.style.backgroundColor = cardData.cardBackgroundColor;
 
+        // Apply Padding
+        tributeCard.style.paddingTop = `${cardData.cardPaddingTop}px`;
+        tributeCard.style.paddingBottom = `${cardData.cardPaddingBottom}px`;
+        tributeCard.style.paddingLeft = `${cardData.cardPaddingLeft}px`;
+        tributeCard.style.paddingRight = `${cardData.cardPaddingRight}px`;
+
         // Occasion Title
         let currentOccasionTitle;
         if (cardData.mainTitleOption === 'custom') {
@@ -616,6 +723,9 @@ document.addEventListener('DOMContentLoaded', () => {
         autoFitFontSize(displayDeceasedName, cardData.deceasedNameFontSize, 14);
 
         displayDatePlace.textContent = cardData.eventDate + ' (' + cardData.eventPlace[cardData.language] + ')';
+        displayDatePlace.style.fontSize = `${cardData.datePlaceFontSize}px`;
+        displayDatePlace.style.color = cardData.datePlaceFontColor;
+        displayDatePlace.style.fontWeight = cardData.datePlaceBold ? 'bold' : 'normal';
         displayPhoto.src = cardData.deceasedPhoto;
 
         // Messages (split textarea by newlines)
@@ -660,6 +770,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 p.style.fontSize = `${cardData.familyNameFontSize}px`;
                 p.style.color = cardData.familyNameFontColor;
                 if (cardData.familyNameBold) p.style.fontWeight = 'bold';
+
+                if (name.mobile) {
+                    if (cardData.familyMobileNewLine) {
+                        p.appendChild(document.createElement('br'));
+                    } else {
+                        p.appendChild(document.createTextNode(" "));
+                    }
+                    const mobileSpan = document.createElement('span');
+                    mobileSpan.textContent = name.mobile;
+                    mobileSpan.style.fontSize = `${cardData.familyMobileFontSize}px`;
+                    mobileSpan.style.color = cardData.familyMobileFontColor;
+                    if (cardData.familyMobileBold) mobileSpan.style.fontWeight = 'bold';
+                    else mobileSpan.style.fontWeight = 'normal';
+                    p.appendChild(mobileSpan);
+                }
+
                 p.style.textAlign = 'center';
                 p.style.textAlignLast = 'auto';
                 displayFamilyNamesLayout.appendChild(p);
@@ -673,6 +799,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 p.style.fontSize = `${cardData.familyNameFontSize}px`;
                 p.style.color = cardData.familyNameFontColor;
                 if (cardData.familyNameBold) p.style.fontWeight = 'bold';
+
+                if (name.mobile) {
+                    if (cardData.familyMobileNewLine) {
+                        p.appendChild(document.createElement('br'));
+                    } else {
+                        p.appendChild(document.createTextNode(" "));
+                    }
+                    const mobileSpan = document.createElement('span');
+                    mobileSpan.textContent = name.mobile;
+                    mobileSpan.style.fontSize = `${cardData.familyMobileFontSize}px`;
+                    mobileSpan.style.color = cardData.familyMobileFontColor;
+                    if (cardData.familyMobileBold) mobileSpan.style.fontWeight = 'bold';
+                    else mobileSpan.style.fontWeight = 'normal';
+                    p.appendChild(mobileSpan);
+                }
+
                 displayFamilyNamesLayout.appendChild(p);
             });
             // If odd number, center the last one
@@ -690,6 +832,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 centerName.textContent = names[0][cardData.language];
                 centerName.style.fontSize = `${cardData.familyNameFontSize}px`;
                 centerName.style.color = cardData.familyNameFontColor;
+                if (cardData.familyNameBold) centerName.style.fontWeight = 'bold';
+
+                if (names[0].mobile) {
+                    if (cardData.familyMobileNewLine) {
+                        centerName.appendChild(document.createElement('br'));
+                    } else {
+                        centerName.appendChild(document.createTextNode(" "));
+                    }
+                    const mobileSpan = document.createElement('span');
+                    mobileSpan.textContent = names[0].mobile;
+                    mobileSpan.style.fontSize = `${cardData.familyMobileFontSize}px`;
+                    mobileSpan.style.color = cardData.familyMobileFontColor;
+                    if (cardData.familyMobileBold) mobileSpan.style.fontWeight = 'bold';
+                    else mobileSpan.style.fontWeight = 'normal';
+                    centerName.appendChild(mobileSpan);
+                }
+
                 displayFamilyNamesLayout.appendChild(centerName);
 
                 if (numNames > 1) {
@@ -699,6 +858,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         p.textContent = names[i][cardData.language];
                         p.style.fontSize = `${cardData.familyNameFontSize}px`;
                         p.style.color = cardData.familyNameFontColor;
+                        if (cardData.familyNameBold) p.style.fontWeight = 'bold';
+
+                        if (names[i].mobile) {
+                            if (cardData.familyMobileNewLine) {
+                                p.appendChild(document.createElement('br'));
+                            } else {
+                                p.appendChild(document.createTextNode(" "));
+                            }
+                            const mobileSpan = document.createElement('span');
+                            mobileSpan.textContent = names[i].mobile;
+                            mobileSpan.style.fontSize = `${cardData.familyMobileFontSize}px`;
+                            mobileSpan.style.color = cardData.familyMobileFontColor;
+                            if (cardData.familyMobileBold) mobileSpan.style.fontWeight = 'bold';
+                            else mobileSpan.style.fontWeight = 'normal';
+                            p.appendChild(mobileSpan);
+                        }
+
                         displayFamilyNamesLayout.appendChild(p);
                     }
                 }
@@ -709,6 +885,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     p.textContent = name[cardData.language];
                     p.style.fontSize = `${cardData.familyNameFontSize}px`;
                     p.style.color = cardData.familyNameFontColor;
+                    if (cardData.familyNameBold) p.style.fontWeight = 'bold';
+
+                    // Add Mobile Number if present
+                    if (name.mobile) {
+                        const mobileSpan = document.createElement('span');
+                        mobileSpan.textContent = " " + name.mobile;
+                        mobileSpan.style.fontSize = `${cardData.familyMobileFontSize}px`;
+                        mobileSpan.style.color = cardData.familyMobileFontColor;
+                        if (cardData.familyMobileBold) mobileSpan.style.fontWeight = 'bold';
+                        else mobileSpan.style.fontWeight = 'normal';
+                        p.appendChild(mobileSpan);
+                    }
+
                     displayFamilyNamesLayout.appendChild(p);
                 });
             }
@@ -718,29 +907,30 @@ document.addEventListener('DOMContentLoaded', () => {
         function renderSectionsOnCard(container, sectionsArray) {
             container.innerHTML = '';
             sectionsArray.forEach(section => {
-                if ((section.title && section.title.trim()) || (section.body && section.body.trim())) {
+                const hasTitle = section.title && section.title.trim();
+                const hasBody = section.body && section.body.trim();
+
+                if (hasTitle || hasBody) {
                     const block = document.createElement('div');
                     block.classList.add('custom-section-block');
-                    const fontSize = (section.fontSize || 16) + 'px';
-                    const color = section.color || '#5a3d2b';
 
-                    if (section.title && section.title.trim()) {
+                    if (hasTitle) {
                         const titleEl = document.createElement('div');
                         titleEl.classList.add('custom-section-title');
                         titleEl.textContent = section.title;
-                        titleEl.style.fontSize = fontSize;
-                        titleEl.style.color = color;
-                        if (section.bold) titleEl.style.fontWeight = 'bold';
+                        titleEl.style.fontSize = (section.titleFontSize || 18) + 'px';
+                        titleEl.style.color = section.titleColor || '#5a3d2b';
+                        if (section.titleBold) titleEl.style.fontWeight = 'bold';
                         block.appendChild(titleEl);
                     }
 
-                    if (section.body && section.body.trim()) {
+                    if (hasBody) {
                         const bodyEl = document.createElement('div');
                         bodyEl.classList.add('custom-section-body');
                         bodyEl.textContent = section.body;
-                        bodyEl.style.fontSize = fontSize;
-                        bodyEl.style.color = color;
-                        if (section.bold) bodyEl.style.fontWeight = 'bold';
+                        bodyEl.style.fontSize = (section.bodyFontSize || 16) + 'px';
+                        bodyEl.style.color = section.bodyColor || '#5a3d2b';
+                        if (section.bodyBold) bodyEl.style.fontWeight = 'bold';
                         block.appendChild(bodyEl);
                     }
 
@@ -755,6 +945,25 @@ document.addEventListener('DOMContentLoaded', () => {
         // Lower custom sections (below family)
         renderSectionsOnCard(displayCustomSections, cardData.customSections);
     }
+
+    // Family Mobile Listeners
+    familyMobileFontSize.addEventListener('input', (e) => {
+        cardData.familyMobileFontSize = e.target.value;
+        familyMobileFontSizeValue.textContent = e.target.value + 'px';
+        updateTributeCardDisplay();
+    });
+    familyMobileFontColor.addEventListener('input', (e) => {
+        cardData.familyMobileFontColor = e.target.value;
+        updateTributeCardDisplay();
+    });
+    familyMobileBoldCheckbox.addEventListener('change', (e) => {
+        cardData.familyMobileBold = e.target.checked;
+        updateTributeCardDisplay();
+    });
+    familyMobileNewLineCheckbox.addEventListener('change', (e) => {
+        cardData.familyMobileNewLine = e.target.checked;
+        updateTributeCardDisplay();
+    });
 
 
     // --- 7. Event Listeners ---
@@ -926,6 +1135,21 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTributeCardDisplay();
     });
 
+    // Date + Place
+    datePlaceFontSize.addEventListener('input', (e) => {
+        cardData.datePlaceFontSize = e.target.value;
+        datePlaceFontSizeValue.textContent = e.target.value + 'px';
+        updateTributeCardDisplay();
+    });
+    datePlaceFontColor.addEventListener('input', (e) => {
+        cardData.datePlaceFontColor = e.target.value;
+        updateTributeCardDisplay();
+    });
+    datePlaceBoldCheckbox.addEventListener('change', (e) => {
+        cardData.datePlaceBold = e.target.checked;
+        updateTributeCardDisplay();
+    });
+
     // Family Name (members)
     familyNameFontSize.addEventListener('input', (e) => {
         cardData.familyNameFontSize = e.target.value;
@@ -962,18 +1186,49 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTributeCardDisplay();
     });
 
+    // Card Padding
+    cardPaddingTop.addEventListener('input', (e) => {
+        cardData.cardPaddingTop = e.target.value;
+        cardPaddingTopValue.textContent = e.target.value;
+        updateTributeCardDisplay();
+    });
+    cardPaddingBottom.addEventListener('input', (e) => {
+        cardData.cardPaddingBottom = e.target.value;
+        cardPaddingBottomValue.textContent = e.target.value;
+        updateTributeCardDisplay();
+    });
+    cardPaddingLeft.addEventListener('input', (e) => {
+        cardData.cardPaddingLeft = e.target.value;
+        cardPaddingLeftValue.textContent = e.target.value;
+        updateTributeCardDisplay();
+    });
+    cardPaddingRight.addEventListener('input', (e) => {
+        cardData.cardPaddingRight = e.target.value;
+        cardPaddingRightValue.textContent = e.target.value;
+        updateTributeCardDisplay();
+    });
+
     // Generate & Download Buttons
     generateBtn.addEventListener('click', updateTributeCardDisplay);
     downloadBtn.addEventListener('click', () => {
         html2canvas(tributeCard, {
             scale: 2,
-            useCORS: true,
+            useCORS: true, // Attempt to load cross-origin images (important for file:// if possible, or local server)
+            allowTaint: false, // Must be false to use toDataURL
             backgroundColor: null
         }).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'shardhajali-card.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+            try {
+                const link = document.createElement('a');
+                link.download = 'shardhajali-card.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } catch (error) {
+                console.error('Download Error:', error);
+                alert('ક્ષમા કરશો, ઈમેજ ડાઉનલોડ કરવામાં સમસ્યા આવી છે.\n\nજો તમે ફાઇલ સીધી ખોલી છે (file://), તો કૃપા કરીને લોકલ સર્વર (http://localhost) નો ઉપયોગ કરો અથવા ઓનલાઇન હોસ્ટ કરો.\n\nTechnical Error: ' + error.message);
+            }
+        }).catch(error => {
+            console.error('html2canvas Error:', error);
+            alert('ક્ષમા કરશો, કાર્ડ રેન્ડર કરવામાં સમસ્યા આવી છે.\n\nTechnical Error: ' + error.message);
         });
     });
 

@@ -14,9 +14,17 @@ body {
 }
 
 /* Custom Text Colors */
-.text-brown { color: var(--bs-brown) !important; }
-.text-light-brown { color: var(--bs-light-brown) !important; }
-.text-golden-brown { color: var(--bs-golden-brown) !important; }
+.text-brown {
+    color: var(--bs-brown) !important;
+}
+
+.text-light-brown {
+    color: var(--bs-light-brown) !important;
+}
+
+.text-golden-brown {
+    color: var(--bs-golden-brown) !important;
+}
 
 /* Custom Button Styles */
 .custom-btn-brown {
@@ -24,6 +32,7 @@ body {
     border-color: var(--bs-golden-brown);
     color: white;
 }
+
 .custom-btn-brown:hover {
     background-color: #c0a77f;
     border-color: #c0a77f;
@@ -34,6 +43,7 @@ body {
     border-color: #28a745;
     color: white;
 }
+
 .custom-btn-green:hover {
     background-color: #218838;
     border-color: #1e7e34;
@@ -61,7 +71,7 @@ body {
     border-color: var(--bs-brown);
     border-width: 3px;
     transform: scale(1.05);
-    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .theme-selector .theme-option:hover {
@@ -90,8 +100,8 @@ body {
     min-height: 700px;
     background-color: var(--bs-cream);
     border-radius: 10px;
-    padding: 50px 75px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    padding: 50px 60px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     overflow: hidden;
     display: flex;
@@ -139,12 +149,14 @@ body {
     justify-content: center;
     margin-bottom: 20px;
 }
+
 .photo-ornament {
     height: inherit;
     width: auto;
     object-fit: contain;
     margin: 0 10px;
 }
+
 .photo-container {
     width: 150px;
     height: 150px;
@@ -157,6 +169,7 @@ body {
     background-color: #eee;
     flex-shrink: 0;
 }
+
 .photo-container img {
     width: 100%;
     height: 100%;
@@ -167,14 +180,17 @@ body {
 .deceased-info {
     margin-bottom: 20px;
 }
+
 .deceased-name {
     font-size: 23px;
     font-weight: 800;
     color: var(--bs-brown);
+    line-height: normal;
     margin-bottom: 0px;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+
 .deceased-date-place {
     font-size: 16px;
     color: var(--bs-light-brown);
@@ -190,6 +206,7 @@ body {
     margin: 0;
     margin-bottom: 0px;
 }
+
 .message-section p:last-child {
     margin-bottom: 0;
 }
@@ -200,12 +217,14 @@ body {
     padding-top: 30px;
     margin-bottom: 10px;
 }
+
 .family-heading {
     font-size: 20px;
     font-weight: 800;
     color: var(--bs-brown);
     margin-bottom: 15px;
 }
+
 .family-names-layout {
     display: flex;
     flex-direction: column;
@@ -214,6 +233,7 @@ body {
     color: var(--bs-light-brown);
     font-size: 18px;
 }
+
 .family-names-layout.two-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -221,11 +241,13 @@ body {
     text-align: left;
     align-items: flex-start;
 }
+
 .family-names-layout p {
     margin: 0;
     line-height: 1.1;
     text-align-last: justify;
 }
+
 .family-names-layout .center-name {
     grid-column: 1 / -1;
     text-align: center;
@@ -237,7 +259,7 @@ body {
    Custom Sections (below family)
    ======================================== */
 .custom-sections-area {
-    margin-top: 20px;
+    margin-top: 10px;
     padding-top: 10px;
 }
 
@@ -278,8 +300,8 @@ body {
     display: flex;
     gap: 4px;
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 18px;
+    right: 18px;
 }
 
 .custom-section-editor .section-actions .btn {
@@ -309,46 +331,58 @@ body {
 
     .tribute-card {
         max-width: 100%;
-        padding: 20px 15px;
+        padding: 50px 55px;
         min-height: auto;
     }
+
     .occasion-title {
         font-size: 24px;
         margin-top: 15px;
         margin-bottom: 20px;
     }
+
     .photo-container-box {
         height: 100px;
         margin-bottom: 10px;
     }
+
     .photo-container {
         width: 100px;
         height: 100px;
     }
+
     .photo-ornament {
         height: 100px;
     }
+
     .deceased-name {
         font-size: 18px;
     }
+
     .deceased-date-place {
         font-size: 14px;
     }
+
     .message-section p {
         font-size: 14px;
     }
+
     .family-heading {
         font-size: 16px;
     }
+
     .family-names-layout {
         font-size: 14px;
     }
+
     .family-names-layout.two-columns {
         gap: 6px 15px;
     }
+
     .custom-section-block .custom-section-title {
         font-size: 16px;
     }
+
     .custom-section-block .custom-section-body {
         font-size: 14px;
     }
@@ -356,31 +390,38 @@ body {
 
 @media (max-width: 575.98px) {
     .tribute-card {
-        padding: 15px 10px;
+        padding: 30px 55px;
         border-radius: 6px;
     }
+
     .occasion-title {
         font-size: 20px;
         margin-top: 10px;
         margin-bottom: 15px;
     }
-    .photo-container-box {
+
+    /* .photo-container-box {
         height: 80px;
     }
+
     .photo-container {
         width: 80px;
         height: 80px;
     }
+
     .photo-ornament {
         height: 80px;
         margin: 0 5px;
-    }
+    } */
+
     .deceased-name {
         font-size: 16px;
     }
+
     .message-section p {
         font-size: 13px;
     }
+
     .family-names-layout {
         font-size: 13px;
     }
